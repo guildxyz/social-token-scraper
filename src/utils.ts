@@ -27,10 +27,9 @@ const writeToFile = (coinDataList: CoinData[], fileName: string) => {
   );
 };
 
-function sleep(ms: number) {
-  return new Promise((resolve) => {
+const sleep = (ms: number) =>
+  new Promise((resolve) => {
     setTimeout(resolve, ms);
   });
-}
 
 export { logAxiosError, writeToFile, sleep };
