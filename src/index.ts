@@ -18,7 +18,7 @@ const scrapeTokenCategory = async (category: string): Promise<CoinData[]> => {
       `Gathering data about ${marketData.name} (${i}/${marketDataList.length}).`
     );
     const currentdata = await getCurrentData(marketData.id);
-    await sleep(200);
+    await sleep(500);
     coinDataList.push({
       name: marketData.name,
       description: currentdata.description.en,
