@@ -5,7 +5,7 @@ import { getCurrentData, getMarketDataList } from "./requests";
 import { CoinData } from "./types/resultTypes";
 import { sleep, writeToFile } from "./utils";
 
-const scrapeTokenCategory = async (category: string) => {
+const scrapeTokenCategory = async (category: string): Promise<CoinData[]> => {
   console.log(`Scraping ${category} category...`);
   const marketDataList = await getMarketDataList(category);
   console.log(`Found ${marketDataList.length} tokens.`);
@@ -29,13 +29,17 @@ const scrapeTokenCategory = async (category: string) => {
     });
   }
 
-  console.log("Writing data to file.");
-  writeToFile(coinDataList, category);
-  console.log(`"${category}.json" created.`);
+  return coinDataList;
 };
 
 (async () => {
-  await scrapeTokenCategory("social-money");
-  await scrapeTokenCategory("fan-token");
-  await scrapeTokenCategory("gaming");
+  const coinDataList = [];
+  coinDataList.push(...(await scrapeTokenCategory("social-money")));
+  coinDataList.push(...(await scrapeTokenCategory("fan-token")));
+  coinDataList.push(...(await scrapeTokenCategory("gaming")));
+
+  const fileName = "result";
+  console.log("Writing data to file.");
+  writeToFile(coinDataList, fileName);
+  console.log(`"${fileName}.json" created.`);
 })();
