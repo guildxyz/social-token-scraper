@@ -21,10 +21,11 @@ const scrapeTokenCategory = async (category: string) => {
     await sleep(200);
     coinDataList.push({
       name: marketData.name,
+      description: currentdata.description.en,
       symbol: marketData.symbol,
       image: marketData.image,
       marketcap: marketData.market_cap,
-      contactAddress: currentdata.platforms?.ethereum,
+      platforms: currentdata.platforms,
     });
   }
 
@@ -35,4 +36,6 @@ const scrapeTokenCategory = async (category: string) => {
 
 (async () => {
   await scrapeTokenCategory("social-money");
+  await scrapeTokenCategory("fan-token");
+  await scrapeTokenCategory("gaming");
 })();

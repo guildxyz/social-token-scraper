@@ -1,8 +1,9 @@
 export interface CoinData {
   symbol: string;
   name: string;
+  description: string;
   image: string;
-  contactAddress: string;
+  platforms: object;
   marketcap: number;
   // holdersNumber: number
 }
