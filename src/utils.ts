@@ -32,4 +32,9 @@ const sleep = (ms: number) =>
     setTimeout(resolve, ms);
   });
 
+// const getHoldersCount = (platforms: object) => {
+//   if (/^(0x)?[0-9a-f]{40}$/i.test(address))
+//   Object.values()
+// };
+
 export { logAxiosError, writeToFile, sleep };
