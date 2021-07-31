@@ -5,5 +5,5 @@ export interface CoinData {
   image: string;
   platforms: object;
   marketcap: number;
-  // holdersNumber: number
+  holdersCount: number;
 }

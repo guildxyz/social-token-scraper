@@ -2,6 +2,7 @@
 /* eslint-disable no-restricted-syntax */
 /* eslint-disable no-await-in-loop */
 import { getCurrentData, getMarketDataList } from "./requests";
+import getHoldersCount from "./scraper";
 import { CoinData } from "./types/resultTypes";
 import { sleep, writeToFile } from "./utils";
 
@@ -18,7 +19,8 @@ const scrapeTokenCategory = async (category: string): Promise<CoinData[]> => {
       `Gathering data about ${marketData.name} (${i}/${marketDataList.length}).`
     );
     const currentdata = await getCurrentData(marketData.id);
-    await sleep(500);
+    const holdersCount = await getHoldersCount(currentdata.platforms);
+    await sleep(1000);
     coinDataList.push({
       name: marketData.name,
       description: currentdata.description.en,
@@ -26,6 +28,7 @@ const scrapeTokenCategory = async (category: string): Promise<CoinData[]> => {
       image: marketData.image,
       marketcap: marketData.market_cap,
       platforms: currentdata.platforms,
+      holdersCount,
     });
   }
 
