@@ -1,3 +1,5 @@
+# Social Token Scraper
+
 ## Description
 
 The social token scraper is a tool for scraping social token information from the web and blockchains.
