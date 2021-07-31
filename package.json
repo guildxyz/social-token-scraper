@@ -1,6 +1,13 @@
 {
   "name": "social-token-scraper",
   "version": "1.0.0",
+  "description": "A tool for scraping social tokens from the web and blockchains.",
+  "author": "ZGEN",
+  "license": "MIT",
+  "homepage": "https://github.com/AgoraSpaceDAO/social-token-scraper#readme",
+  "bugs": {
+    "url": "https://github.com/AgoraSpaceDAO/social-token-scraper/issues"
+  },
   "main": "index.js",
   "scripts": {
     "dev": "ts-node src/index.ts"
