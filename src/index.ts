@@ -1,5 +1,6 @@
 /* eslint-disable no-restricted-syntax */
 /* eslint-disable no-await-in-loop */
+import config from "./config";
 import { getCurrentData, getMarketDataList } from "./requests";
 import getHoldersCount from "./scraper";
 import { CoinData } from "./types/resultTypes";
@@ -10,8 +11,8 @@ const scrapeTokenCategory = async (category: string): Promise<CoinData[]> => {
   logger.info(`Scraping ${category} category...`);
   const marketDataList = await getMarketDataList(category);
   logger.info(`Found ${marketDataList.length} tokens.`);
-  const coinDataList: CoinData[] = [];
 
+  const coinDataList: CoinData[] = [];
   let i = 0;
   for (const marketData of marketDataList) {
     i += 1;
@@ -20,7 +21,7 @@ const scrapeTokenCategory = async (category: string): Promise<CoinData[]> => {
     );
     const currentdata = await getCurrentData(marketData.id);
     const holdersCount = await getHoldersCount(currentdata.platforms);
-    await sleep(1000);
+    await sleep(config.requestDelay);
     coinDataList.push({
       name: marketData.name,
       description: currentdata.description.en,
