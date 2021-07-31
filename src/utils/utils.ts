@@ -1,15 +1,15 @@
 import fs from "fs";
-import { CoinData } from "./types/resultTypes";
+import { CoinData } from "../types/resultTypes";
+import logger from "./logger";
 
-/* eslint-disable no-console */
 const logAxiosError = (error) => {
   if (
     error.response?.data?.errors?.length > 0 &&
     error.response?.data?.errors[0]?.msg
   ) {
-    console.log(error.response.data.errors[0].msg);
+    logger.error(error.response.data.errors[0].msg);
   } else {
-    console.log(error);
+    logger.error(error);
   }
 };
 
@@ -22,7 +22,7 @@ const writeToFile = (coinDataList: CoinData[], fileName: string) => {
     `${dirName}/${fileName}.json`,
     JSON.stringify(coinDataList),
     (err) => {
-      if (err) console.log(err);
+      if (err) logger.error(err);
     }
   );
 };

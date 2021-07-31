@@ -1,21 +1,21 @@
-/* eslint-disable no-console */
 /* eslint-disable no-restricted-syntax */
 /* eslint-disable no-await-in-loop */
 import { getCurrentData, getMarketDataList } from "./requests";
 import getHoldersCount from "./scraper";
 import { CoinData } from "./types/resultTypes";
-import { sleep, writeToFile } from "./utils";
+import logger from "./utils/logger";
+import { sleep, writeToFile } from "./utils/utils";
 
 const scrapeTokenCategory = async (category: string): Promise<CoinData[]> => {
-  console.log(`Scraping ${category} category...`);
+  logger.info(`Scraping ${category} category...`);
   const marketDataList = await getMarketDataList(category);
-  console.log(`Found ${marketDataList.length} tokens.`);
+  logger.info(`Found ${marketDataList.length} tokens.`);
   const coinDataList: CoinData[] = [];
 
   let i = 0;
   for (const marketData of marketDataList) {
     i += 1;
-    console.log(
+    logger.info(
       `Gathering data about ${marketData.name} (${i}/${marketDataList.length}).`
     );
     const currentdata = await getCurrentData(marketData.id);
@@ -42,7 +42,7 @@ const scrapeTokenCategory = async (category: string): Promise<CoinData[]> => {
   coinDataList.push(...(await scrapeTokenCategory("gaming")));
 
   const fileName = "result";
-  console.log("Writing data to file.");
+  logger.info("Writing data to file.");
   writeToFile(coinDataList, fileName);
-  console.log(`"${fileName}.json" created.`);
+  logger.info(`"${fileName}.json" created.`);
 })();
