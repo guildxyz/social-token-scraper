@@ -36,9 +36,16 @@ const scrapeTokenCategory = async (category: string): Promise<CoinData[]> => {
   return coinDataList;
 };
 
-const scrapeSocialTokens = async (categories: string[]) => {
-  const coinDataList = [];
+(async () => {
+  const categories = process.argv.slice(2, process.argv.length);
+  if (categories.length === 0) {
+    logger.error(
+      "You need to provide at least one category to scrape social tokens."
+    );
+    return;
+  }
 
+  const coinDataList = [];
   for (const category of categories) {
     coinDataList.push(...(await scrapeTokenCategory(category)));
   }
@@ -47,6 +54,4 @@ const scrapeSocialTokens = async (categories: string[]) => {
   logger.info("Writing data to file.");
   writeToFile(coinDataList, fileName);
   logger.info(`"${fileName}.json" created.`);
-};
-
-export default scrapeSocialTokens;
+})();

@@ -10,7 +10,7 @@
   },
   "main": "index.js",
   "scripts": {
-    "dev": "ts-node src/index.ts"
+    "social": "ts-node src/logic/social-token/index.ts"
   },
   "dependencies": {
     "axios": "^0.21.1",
