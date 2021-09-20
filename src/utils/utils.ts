@@ -32,4 +32,12 @@ const sleep = (ms: number) =>
     setTimeout(resolve, ms);
   });
 
-export { logAxiosError, writeToFile, sleep };
+const getDateString = () =>
+  new Date()
+    .toISOString()
+    .replace(/T/, " ")
+    .replace(/\..+/, "")
+    .replaceAll(":", "-")
+    .replace(" ", "_");
+
+export { logAxiosError, writeToFile, sleep, getDateString };
