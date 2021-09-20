@@ -5,7 +5,7 @@ import { getCurrentData, getMarketDataList } from "./requests";
 import getHoldersCount from "./scraper";
 import { CoinData } from "../../types/resultTypes";
 import logger from "../../utils/logger";
-import { getDateString, sleep, writeToFile } from "../../utils/utils";
+import { saveToFile, sleep } from "../../utils/utils";
 
 const scrapeTokenCategory = async (category: string): Promise<CoinData[]> => {
   logger.info(`Scraping ${category} category...`);
@@ -50,8 +50,5 @@ const scrapeTokenCategory = async (category: string): Promise<CoinData[]> => {
     coinDataList.push(...(await scrapeTokenCategory(category)));
   }
 
-  const fileName = getDateString();
-  logger.info("Writing data to file.");
-  writeToFile(coinDataList, fileName);
-  logger.info(`"${fileName}.json" created.`);
+  saveToFile(coinDataList);
 })();

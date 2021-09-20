@@ -10,7 +10,8 @@
   },
   "main": "index.js",
   "scripts": {
-    "social": "ts-node src/logic/social-token/index.ts"
+    "social": "ts-node src/logic/social-token/index.ts",
+    "opensea": "ts-node src/logic/opensea/index.ts"
   },
   "dependencies": {
     "axios": "^0.21.1",

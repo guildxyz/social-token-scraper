@@ -1667,3 +1667,308 @@ export interface MarketDataResponse {
   roi?: any;
   last_updated: Date;
 }
+
+export interface PaymentToken {
+  id: number;
+  symbol: string;
+  address: string;
+  image_url: string;
+  name: string;
+  decimals: number;
+  eth_price: number;
+  usd_price: number;
+}
+
+export interface PrimaryAssetContract {
+  address: string;
+  asset_contract_type: string;
+  created_date: Date;
+  name: string;
+  nft_version: string;
+  opensea_version?: any;
+  owner: number;
+  schema_name: string;
+  symbol: string;
+  total_supply: string;
+  description: string;
+  external_link: string;
+  image_url: string;
+  default_to_fiat: boolean;
+  dev_buyer_fee_basis_points: number;
+  dev_seller_fee_basis_points: number;
+  only_proxied_transfers: boolean;
+  opensea_buyer_fee_basis_points: number;
+  opensea_seller_fee_basis_points: number;
+  buyer_fee_basis_points: number;
+  seller_fee_basis_points: number;
+  payout_address: string;
+}
+
+export interface Mouth {
+  "bored unshaven cigarette": number;
+  "bored unshaven dagger": number;
+  bored: number;
+  "bored party horn": number;
+  "phoneme vuh": number;
+  "bored unshaven": number;
+  "grin gold grill": number;
+  grin: number;
+  "phoneme l": number;
+  jovial: number;
+  "bored pipe": number;
+  "bored bubblegum": number;
+  discomfort: number;
+  "bored unshaven pizza": number;
+  "phoneme oh": number;
+  "bored unshaven pipe": number;
+  "bored unshaven bubblegum": number;
+  "bored dagger": number;
+  "tongue out": number;
+  "bored unshaven party horn": number;
+  "grin diamond grill": number;
+  "bored pizza": number;
+  "bored unshaven kazoo": number;
+  rage: number;
+  "phoneme  ooo": number;
+  "bored unshaven cigar": number;
+  "phoneme wah": number;
+  "bored cigar": number;
+  "bored cigarette": number;
+  dumbfounded: number;
+  "grin multicolored": number;
+  "bored kazoo": number;
+  "small grin": number;
+}
+
+export interface Fur {
+  pink: number;
+  "golden brown": number;
+  gray: number;
+  noise: number;
+  "death bot": number;
+  blue: number;
+  tan: number;
+  cheetah: number;
+  red: number;
+  dmt: number;
+  robot: number;
+  "dark brown": number;
+  white: number;
+  zombie: number;
+  trippy: number;
+  cream: number;
+  brown: number;
+  black: number;
+  "solid gold": number;
+}
+
+export interface Eyes {
+  cyborg: number;
+  zombie: number;
+  bloodshot: number;
+  bored: number;
+  "blue beams": number;
+  eyepatch: number;
+  coins: number;
+  closed: number;
+  angry: number;
+  scumbag: number;
+  sad: number;
+  holographic: number;
+  robot: number;
+  sunglasses: number;
+  "x eyes": number;
+  "laser eyes": number;
+  heart: number;
+  blindfold: number;
+  crazy: number;
+  sleepy: number;
+  "wide eyed": number;
+  "3d": number;
+  hypnotized: number;
+}
+
+export interface Background {
+  yellow: number;
+  orange: number;
+  gray: number;
+  "army green": number;
+  purple: number;
+  aquamarine: number;
+  "new punk blue": number;
+  blue: number;
+}
+
+export interface Hat {
+  "commie hat": number;
+  "army hat": number;
+  "bayc flipped brim": number;
+  "baby's bonnet": number;
+  "faux hawk": number;
+  "vietnam era helmet": number;
+  "fisherman's hat": number;
+  halo: number;
+  "party hat 1": number;
+  "girl's hair pink": number;
+  "stuntman helmet": number;
+  safari: number;
+  "sea captain's hat": number;
+  "seaman's hat": number;
+  "police motorcycle helmet": number;
+  "sushi chef headband": number;
+  "bandana blue": number;
+  "laurel wreath": number;
+  "cowboy hat": number;
+  "king's crown": number;
+  "irish boho": number;
+  "bayc hat red": number;
+  beanie: number;
+  "s&m hat": number;
+  "short mohawk": number;
+  "party hat 2": number;
+  "bayc hat black": number;
+  "trippy captain's hat": number;
+  bowler: number;
+  "bunny ears": number;
+  "prussian helmet": number;
+  "girl's hair short": number;
+  "spinner hat": number;
+  horns: number;
+  "ww2 pilot helm": number;
+  fez: number;
+}
+
+export interface Clothes {
+  "tie dye": number;
+  "striped tee": number;
+  "prison jumpsuit": number;
+  "lab coat": number;
+  "biker vest": number;
+  "bayc t red": number;
+  "vietnam jacket": number;
+  "caveman pelt": number;
+  "leather punk jacket": number;
+  "puffy vest": number;
+  "admirals coat": number;
+  "smoking jacket": number;
+  "bone tee": number;
+  hawaiian: number;
+  "black t": number;
+  "leather jacket": number;
+  "prom dress": number;
+  "tuxedo tee": number;
+  "rainbow suspenders": number;
+  "pimp coat": number;
+  "sleeveless logo t": number;
+  tanktop: number;
+  "black suit": number;
+  "blue dress": number;
+  "tweed suit": number;
+  "space suit": number;
+  "black holes t": number;
+  service: number;
+  "wool turtleneck": number;
+  "lumberjack shirt": number;
+  "navy striped tee": number;
+  toga: number;
+  "stunt jacket": number;
+  "sleeveless t": number;
+  "kings robe": number;
+  "bone necklace": number;
+  "cowboy shirt": number;
+  guayabera: number;
+  "hip hop": number;
+  "sailor shirt": number;
+  "bayc t black": number;
+  bandolier: number;
+  "work vest": number;
+}
+
+export interface Earring {
+  "silver hoop": number;
+  "gold stud": number;
+  "silver stud": number;
+  "gold hoop": number;
+  "diamond stud": number;
+  cross: number;
+}
+
+export interface Traits {
+  Mouth: Mouth;
+  Fur: Fur;
+  Eyes: Eyes;
+  Background: Background;
+  Hat: Hat;
+  Clothes: Clothes;
+  Earring: Earring;
+}
+
+export interface Stats {
+  one_day_volume: number;
+  one_day_change: number;
+  one_day_sales: number;
+  one_day_average_price: number;
+  seven_day_volume: number;
+  seven_day_change: number;
+  seven_day_sales: number;
+  seven_day_average_price: number;
+  thirty_day_volume: number;
+  thirty_day_change: number;
+  thirty_day_sales: number;
+  thirty_day_average_price: number;
+  total_volume: number;
+  total_sales: number;
+  total_supply: number;
+  count: number;
+  num_owners: number;
+  average_price: number;
+  num_reports: number;
+  market_cap: number;
+  floor_price: number;
+}
+
+export interface DisplayData {
+  card_display_style: string;
+}
+
+export interface Collection {
+  editors: string[];
+  payment_tokens: PaymentToken[];
+  primary_asset_contracts: PrimaryAssetContract[];
+  traits: Traits;
+  stats: Stats;
+  banner_image_url: string;
+  chat_url?: any;
+  created_date: Date;
+  default_to_fiat: boolean;
+  description: string;
+  dev_buyer_fee_basis_points: string;
+  dev_seller_fee_basis_points: string;
+  discord_url: string;
+  display_data: DisplayData;
+  external_url: string;
+  featured: boolean;
+  featured_image_url: string;
+  hidden: boolean;
+  safelist_request_status: string;
+  image_url: string;
+  is_subject_to_whitelist: boolean;
+  large_image_url: string;
+  medium_username?: any;
+  name: string;
+  only_proxied_transfers: boolean;
+  opensea_buyer_fee_basis_points: string;
+  opensea_seller_fee_basis_points: string;
+  payout_address: string;
+  require_email: boolean;
+  short_description?: any;
+  slug: string;
+  telegram_url?: any;
+  twitter_username: string;
+  instagram_username: string;
+  wiki_url?: any;
+}
+
+export interface RootObject {
+  collection: Collection;
+}

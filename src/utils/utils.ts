@@ -1,19 +1,27 @@
 import fs from "fs";
-import { CoinData } from "../types/resultTypes";
 import logger from "./logger";
 
-const logAxiosError = (error) => {
-  if (
-    error.response?.data?.errors?.length > 0 &&
-    error.response?.data?.errors[0]?.msg
-  ) {
-    logger.error(error.response.data.errors[0].msg);
-  } else {
-    logger.error(error);
+const extractAxiosErrorMsg = (error: {
+  response: { data: { errors: string | any[] } };
+}) => {
+  if (error.response?.data?.errors?.length > 0) {
+    return JSON.stringify(error.response.data.errors);
   }
+
+  if (error.response?.data) {
+    return JSON.stringify(error.response.data);
+  }
+
+  return JSON.stringify(error);
 };
 
-const writeToFile = (coinDataList: CoinData[], fileName: string) => {
+const logAxiosError = (error: {
+  response: { data: { errors: string | any[] } };
+}) => {
+  logger.error(extractAxiosErrorMsg(error));
+};
+
+const writeToFile = (coinDataList: any, fileName: string) => {
   const dirName = "results";
   if (!fs.existsSync(dirName)) {
     fs.mkdirSync(dirName);
@@ -40,4 +48,11 @@ const getDateString = () =>
     .replaceAll(":", "-")
     .replace(" ", "_");
 
-export { logAxiosError, writeToFile, sleep, getDateString };
+const saveToFile = (data: any) => {
+  const fileName = getDateString();
+  logger.info("Writing data to file.");
+  writeToFile(data, fileName);
+  logger.info(`"${fileName}.json" created.`);
+};
+
+export { logAxiosError, saveToFile, sleep };
