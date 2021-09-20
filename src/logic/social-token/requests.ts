@@ -1,7 +1,7 @@
 import axios from "axios";
-import config from "./config";
-import { CurrentDataResponse, MarketDataResponse } from "./types/apiTypes";
-import { logAxiosError } from "./utils/utils";
+import config from "../../config";
+import { CurrentDataResponse, MarketDataResponse } from "../../types/apiTypes";
+import { logAxiosError } from "../../utils/utils";
 
 const getMarketDataList = async (
   category: string

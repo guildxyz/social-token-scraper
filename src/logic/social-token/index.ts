@@ -1,11 +1,11 @@
 /* eslint-disable no-restricted-syntax */
 /* eslint-disable no-await-in-loop */
-import config from "./config";
+import config from "../../config";
 import { getCurrentData, getMarketDataList } from "./requests";
 import getHoldersCount from "./scraper";
-import { CoinData } from "./types/resultTypes";
-import logger from "./utils/logger";
-import { sleep, writeToFile } from "./utils/utils";
+import { CoinData } from "../../types/resultTypes";
+import logger from "../../utils/logger";
+import { sleep, writeToFile } from "../../utils/utils";
 
 const scrapeTokenCategory = async (category: string): Promise<CoinData[]> => {
   logger.info(`Scraping ${category} category...`);
@@ -36,14 +36,16 @@ const scrapeTokenCategory = async (category: string): Promise<CoinData[]> => {
   return coinDataList;
 };
 
-(async () => {
+const scrapeSocialTokens = async (categories: string[]) => {
   const coinDataList = [];
-  coinDataList.push(...(await scrapeTokenCategory("social-money")));
-  coinDataList.push(...(await scrapeTokenCategory("fan-token")));
-  coinDataList.push(...(await scrapeTokenCategory("gaming")));
+  categories.map(async (c) =>
+    coinDataList.push(...(await scrapeTokenCategory(c)))
+  );
 
   const fileName = "result";
   logger.info("Writing data to file.");
   writeToFile(coinDataList, fileName);
   logger.info(`"${fileName}.json" created.`);
-})();
+};
+
+export default scrapeSocialTokens;
