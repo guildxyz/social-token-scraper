@@ -11,7 +11,8 @@
   "main": "index.js",
   "scripts": {
     "social": "ts-node src/logic/social-token/index.ts",
-    "opensea": "ts-node src/logic/opensea/index.ts"
+    "opensea-collection": "ts-node src/logic/opensea/collection/index.ts",
+    "opensea-asset": "ts-node src/logic/opensea/asset/index.ts"
   },
   "dependencies": {
     "axios": "^0.21.1",

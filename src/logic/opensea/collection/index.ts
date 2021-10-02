@@ -1,9 +1,8 @@
 /* eslint-disable no-await-in-loop */
 /* eslint-disable no-restricted-syntax */
 import axios from "axios";
-import { logAxiosError, saveToFile } from "../../utils/utils";
-
-const baseApiUrl = "https://api.opensea.io/api/v1";
+import { logAxiosError, saveToFile } from "../../../utils/utils";
+import { baseApiUrl } from "../common";
 
 const getCollection = async (collectionName: string) => {
   try {
