@@ -21,18 +21,14 @@ const logAxiosError = (error: {
   logger.error(extractAxiosErrorMsg(error));
 };
 
-const writeToFile = (coinDataList: any, fileName: string) => {
+const writeToFile = (data: any, fileName: string) => {
   const dirName = "results";
   if (!fs.existsSync(dirName)) {
     fs.mkdirSync(dirName);
   }
-  fs.writeFile(
-    `${dirName}/${fileName}.json`,
-    JSON.stringify(coinDataList),
-    (err) => {
-      if (err) logger.error(err);
-    }
-  );
+  fs.writeFile(`${dirName}/${fileName}.json`, JSON.stringify(data), (err) => {
+    if (err) logger.error(err);
+  });
 };
 
 const sleep = (ms: number) =>
